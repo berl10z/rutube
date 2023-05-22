@@ -12,9 +12,9 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
-
     <!-- Scripts -->
     <link rel="stylesheet" href="{{ asset('style.css') }}">
+    <link href="https://vjs.zencdn.net/7.14.3/video-js.min.css" rel="stylesheet">
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>
 <body>
@@ -31,6 +31,7 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
+                        <a class="nav-link" href="{{ route('upload') }}">{{ __('Upload') }}</a>
                     </ul>
                     <ul class="navbar-nav ms-auto">
                         @guest
@@ -67,6 +68,7 @@
             @yield('content')
         </main>
     </div>
+    <script src="https://vjs.zencdn.net/7.14.3/video.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
     <script src="{{ asset("main.js") }}"></script>
 </body>

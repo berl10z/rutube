@@ -16,7 +16,7 @@ class CreateRequest extends FormRequest
         return [
             'name' => ['string','max:255','required'],
             'email' => ['email','max:255','required', 'unique:users'],
-            'password' => ['string','required','confirmed'],
+            'password' => ['string','required','max:255','confirmed'],
             'rules' => ['accepted']
         ];
     }

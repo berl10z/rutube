@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\VideoController;
+use App\Http\Controllers\MainController;
 
 /*
 |--------------------------------------------------------------------------
@@ -12,19 +15,17 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+Route::get('/',[MainController::class,'index'])->name('index');
+Route::get('/home',[MainController::class,'home'])->name('home');
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('welcome');
+Route::get('/register',[AuthController::class, 'registerShow'])->name('registerShow');
+Route::post('/register',[AuthController::class, 'register'])->name('register');
 
+Route::get('/login',[AuthController::class, 'loginShow'])->name('loginShow');
+Route::post('/login',[AuthController::class, 'login'])->name('login');
 
-Route::get('/register', [App\Http\Controllers\AuthController::class, 'registerShow'])->name('registerShow');
-Route::post('/register', [App\Http\Controllers\AuthController::class, 'register'])->name('register');
+Route::get('/logout',[AuthController::class, 'logout'])->name('logout');
 
-Route::get('/login', [App\Http\Controllers\AuthController::class, 'loginShow'])->name('loginShow');
-Route::post('/login', [App\Http\Controllers\AuthController::class, 'login'])->name('login');
-
-Route::get('/logout', [App\Http\Controllers\AuthController::class, 'logout'])->name('logout');
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-Route::get('/upload', [App\Http\Controllers\VideoController::class, 'uploadShow'])->name('uploadShow');
+Route::get('/upload',[VideoController::class, 'uploadShow'])->name('uploadShow');
+Route::post('/upload',[VideoController::class, 'upload'])->name('upload');
+Route::get('/{id}/delete/',[VideoController::class, 'delete'])->name('delete');

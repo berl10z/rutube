@@ -7,7 +7,7 @@
                 <div class="card">
                     <div class="card-header">{{ __('Dashboard') }}</div>
                     <div class="card-body">
-                        <alert-component :users="{{ json_encode($users) }}"></alert-component>
+                        <alert-component></alert-component>
                     </div>
                 </div>
             </div>

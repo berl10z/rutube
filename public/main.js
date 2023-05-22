@@ -1,4 +1,7 @@
 $(document).ready(function() {
+    // $('video').each(function() {
+    //     videojs(this);
+    // });
     $('#logout_link').click(function() {
       $('#modal').fadeIn(300);
     });

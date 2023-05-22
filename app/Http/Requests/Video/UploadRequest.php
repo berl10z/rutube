@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\Users;
+namespace App\Http\Requests\Video;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class LoginRequest extends FormRequest
+class UploadRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,8 +22,10 @@ class LoginRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => ['required','max:255'],
-            'password' => ['string','required','max:255'],
+            'name' => ['required','max:255','string'],
+            'description' => ['required','max:255','string'],
+            'category_id' => ['required'],
+            'video' => ['required','mimes:mp4,mov,ogg']
         ];
     }
 }

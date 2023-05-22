@@ -48,6 +48,6 @@ class AuthController extends Controller
     {
         auth()->logout();
 
-        return to_route('welcome');
+        return to_route('main');
     }
 }
